@@ -1,0 +1,33 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+form {
+  display: grid;
+  gap: 10px;
+  max-width: 600px;
+  margin-bottom: 20px;
+}
+
+input, select, button {
+  padding: 10px;
+  font-size: 14px;
+}
+
+button {
+  cursor: pointer;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.card {
+  border: 1px solid #ddd;
+  padding: 16px;
+  border-radius: 8px;
+}/* You can add global styles to this file, and also import other style files */

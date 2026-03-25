@@ -1,0 +1,85 @@
+<div class="login-shell">
+  <div class="login-panel">
+    <div class="login-brand">
+      <div class="login-badge">AssetFlow</div>
+
+      <h1>Control de Activos Empresariales</h1>
+
+      <p class="login-description">
+        Supervisa inventario, empleados y asignaciones desde una plataforma moderna,
+        clara y centralizada.
+      </p>
+
+      <div class="login-highlights">
+        <div class="highlight-card">
+          <span class="highlight-title">Inventario centralizado</span>
+          <span class="highlight-text">Consulta y administra todos los activos en un solo lugar.</span>
+        </div>
+
+        <div class="highlight-card">
+          <span class="highlight-title">Asignaciones seguras</span>
+          <span class="highlight-text">Controla responsables, movimientos y disponibilidad.</span>
+        </div>
+
+        <div class="highlight-card">
+          <span class="highlight-title">Visibilidad por roles</span>
+          <span class="highlight-text">Cada usuario accede solo a la información que le corresponde.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="login-card">
+      <div class="login-card__header">
+        <h2>Bienvenido</h2>
+        <p>Ingresa tus credenciales para continuar</p>
+      </div>
+
+      <form (ngSubmit)="submit()" class="login-form">
+        <label class="field">
+          <span>Usuario</span>
+          <input
+            [(ngModel)]="username"
+            name="username"
+            type="text"
+            placeholder="Ingresa tu usuario"
+            required
+          />
+        </label>
+
+        <label class="field">
+          <span>Contraseña</span>
+          <input
+            [(ngModel)]="password"
+            name="password"
+            type="password"
+            placeholder="Ingresa tu contraseña"
+            required
+          />
+        </label>
+
+        <button type="submit">Ingresar al sistema</button>
+      </form>
+
+      <p class="login-error" *ngIf="error">{{ error }}</p>
+
+      <div class="demo-users">
+        <h3>Accesos de demostración</h3>
+
+        <div class="demo-user">
+          <strong>Administrador</strong>
+          <span>admin / admin123</span>
+        </div>
+
+        <div class="demo-user">
+          <strong>Empleado</strong>
+          <span>empleado / empleado123</span>
+        </div>
+
+        <div class="demo-user">
+          <strong>Consulta</strong>
+          <span>consulta / consulta123</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

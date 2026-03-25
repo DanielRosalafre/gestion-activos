@@ -1,0 +1,25 @@
+<div *ngIf="auth.isLoggedIn(); else loginView">
+  <nav class="nav">
+    <div class="nav-left">
+      <a routerLink="/">Dashboard</a>
+      <a routerLink="/assets" *ngIf="auth.hasRole(['admin'])">Activos</a>
+      <a routerLink="/employees" *ngIf="auth.hasRole(['admin'])">Empleados</a>
+      <a routerLink="/assignments" *ngIf="auth.hasRole(['admin', 'employee'])">Asignaciones</a>
+    </div>
+
+    <div class="nav-right">
+      <span class="nav-user">
+        {{ auth.getUser()?.name }} · {{ auth.getUser()?.role }}
+      </span>
+      <button type="button" (click)="logout()">Cerrar sesión</button>
+    </div>
+  </nav>
+
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+<ng-template #loginView>
+  <router-outlet></router-outlet>
+</ng-template>

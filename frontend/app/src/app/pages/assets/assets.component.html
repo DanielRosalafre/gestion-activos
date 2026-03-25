@@ -1,0 +1,37 @@
+<h1>Activos</h1>
+
+<form (ngSubmit)="save()">
+  <input [(ngModel)]="form.code" name="code" placeholder="Código" required>
+  <input [(ngModel)]="form.name" name="name" placeholder="Nombre" required>
+  <input [(ngModel)]="form.category" name="category" placeholder="Categoría" required>
+  <input [(ngModel)]="form.serialNumber" name="serialNumber" placeholder="Serie">
+  <input [(ngModel)]="form.location" name="location" placeholder="Ubicación">
+  <input [(ngModel)]="form.purchaseDate" name="purchaseDate" type="date">
+  <input [(ngModel)]="form.purchaseValue" name="purchaseValue" type="number" placeholder="Valor">
+  <button type="submit">Guardar activo</button>
+</form>
+
+<hr>
+
+<table border="1" cellpadding="8">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Código</th>
+      <th>Nombre</th>
+      <th>Categoría</th>
+      <th>Ubicación</th>
+      <th>Estado</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let asset of assets">
+      <td>{{ asset.id }}</td>
+      <td>{{ asset.code }}</td>
+      <td>{{ asset.name }}</td>
+      <td>{{ asset.category }}</td>
+      <td>{{ asset.location }}</td>
+      <td>{{ asset.status }}</td>
+    </tr>
+  </tbody>
+</table>

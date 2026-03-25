@@ -1,0 +1,48 @@
+<h1>Asignaciones</h1>
+
+<form (ngSubmit)="save()">
+  <select [(ngModel)]="form.assetId" name="assetId" required>
+    <option value="">Seleccione activo</option>
+    <option *ngFor="let asset of assets" [value]="asset.id">
+      {{ asset.code }} - {{ asset.name }} - {{ asset.status }}
+    </option>
+  </select>
+
+  <select [(ngModel)]="form.employeeId" name="employeeId" required>
+    <option value="">Seleccione empleado</option>
+    <option *ngFor="let employee of employees" [value]="employee.id">
+      {{ employee.fullName }}
+    </option>
+  </select>
+
+  <input [(ngModel)]="form.assignedAt" name="assignedAt" type="date" required>
+  <input [(ngModel)]="form.notes" name="notes" placeholder="Notas">
+  <button type="submit">Asignar activo</button>
+</form>
+
+<hr>
+
+<table border="1" cellpadding="8">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Activo</th>
+      <th>Empleado</th>
+      <th>Fecha asignación</th>
+      <th>Fecha devolución</th>
+      <th>Acción</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of assignments">
+      <td>{{ item.id }}</td>
+      <td>{{ item.asset?.name }}</td>
+      <td>{{ item.employee?.fullName }}</td>
+      <td>{{ item.assignedAt }}</td>
+      <td>{{ item.returnedAt || 'Pendiente' }}</td>
+      <td>
+        <button type="button" *ngIf="!item.returnedAt" (click)="returnAsset(item.id)">Devolver</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

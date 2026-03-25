@@ -1,0 +1,29 @@
+<h1>Empleados</h1>
+
+<form (ngSubmit)="save()">
+  <input [(ngModel)]="form.fullName" name="fullName" placeholder="Nombre completo" required>
+  <input [(ngModel)]="form.email" name="email" placeholder="Correo" required>
+  <input [(ngModel)]="form.department" name="department" placeholder="Departamento" required>
+  <button type="submit">Guardar empleado</button>
+</form>
+
+<hr>
+
+<table border="1" cellpadding="8">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Correo</th>
+      <th>Departamento</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let employee of employees">
+      <td>{{ employee.id }}</td>
+      <td>{{ employee.fullName }}</td>
+      <td>{{ employee.email }}</td>
+      <td>{{ employee.department }}</td>
+    </tr>
+  </tbody>
+</table>
